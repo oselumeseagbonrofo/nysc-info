@@ -1,0 +1,37 @@
+# secrets and credentials
+.env
+.env.*
+!.env.example
+*secret*.json
+client_secret*.json
+*.pem
+*.key
+*.p12
+*.jks
+*.p8
+credential*
+credentials*
+oauth_credentials*
+
+# local config and state
+.config/
+.ssh/
+.id_token*
+*id_token*
+
+# logs and temp
+*.log
+tmp/
+*.tmp
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# deps
+node_modules/
+
+# editor
+.vscode/
+.idea/
+*.swp
