@@ -1,42 +1,41 @@
-# project-template
+# NYSC Batch C 2026 — Clear Guide
 
-Clone this when a new project starts, especially when the hackathon whistle
-blows. It is a standalone factory: grilling, taste, lessons, escape hatches,
-HTML reports, the debrief, the inquiry log, the verification bar, all
-self-contained.
+Single-page, verified guide for prospective corps members. Senate list → NERD clearance → registration → call-up → camp, with no rumour.
 
-## Why this exists
+**Live:** https://oselumeseagbonrofo.github.io/nysc-info/
 
-Every new project started with an agent that knew none of the rules. I
-re-explained how I work from scratch each time, and each retelling lost bits.
-This repo fixes that: the rules live in one file, get symlinked into every
-harness, and get cloned into every new project.
+Compare 3 identities on the hub (header to switch, `?v=a|b|c` deep link):
+- **A — Clear Guide** (`variants/variant-a.html`) — cream/forest editorial, timeline + checklist hero
+- **B — Gazette** (`variants/variant-b.html`) — federal notice, black rules + Nigeria green, perforated call-up ticket
+- **C — Handbook** (`variants/variant-c.html`) — kraft field manual, punched holes + rubber stamp, pocket checklist
 
-Two calls I made early and won't undo.
+Direct: [/variants/variant-a.html](variants/variant-a.html) · [/variants/variant-b.html](variants/variant-b.html) · [/variants/variant-c.html](variants/variant-c.html)
 
-No templates. Blank forms made the agent lazy. Every page came out looking
-like every other page, because it was asked to. Now the rules say how to
-write; the page gets designed fresh each time, or it doesn't get made.
+## What it covers
 
-Proof over "it works". I stopped accepting that phrase. Every implementation
-lands with a report you can run yourself, and a debrief in plain language
-that ends with a blank for what I learned. The agent never writes that part.
+- **Registration:** Mon 7–Sun 13 Sept 2026 (7-day fixed window, NYSC notice 28 Aug 2026)
+- **NERD mandatory:** signed project (you + supervisor + HOD) uploaded at an accredited centre only (₦12k–₦15k), code required on the NYSC portal — no clearance, no registration
+- **Senate list:** verify before anything else, fix mismatches at Student Affairs
+- **Call-up & camp:** call-up number/letter after ICT processing, 21-day orientation (Stream 1 late Oct–mid Nov TBC, Stream 2 Nov–Dec TBC)
+- Interactive checklist (persisted), statement-of-result email template (CC Sylvester Efomah), documents/packing lists, FAQ
 
-## What's inside
+## Stack
 
-- AGENTS.md: how work flows in a freshly cloned project (grilling first,
-  taste, lessons, escape hatches, HTML reports, verification bar)
-- TASTE.md: how I write code, sectioned by stack. General rules apply
-  everywhere, stack sections only in that stack
-- LEARNINGS.md: lessons store with scope tags, so a React lesson never leaks
-  into a Go project
-- .agents/skills/: the skills (unslop, frontend-design, grilling, and the
-  rest), mirrored so they survive any machine
-- .github/: work-slot and bug issue templates, PR checklist
-- plans/, reports/, debriefs/, inquiries/, proofs/, learnings/: the artefact
-  folders
+No build. Static HTML + Tailwind CDN + vanilla JS. Opens via `file://` or any static host. `index.html` is the hub (iframe switcher keeps styles isolated); `.nojekyll` for GitHub Pages.
 
-## Start
+## Local
 
-Clone, rename, commit the template state so the real history starts clean,
-then open the first issue.
+```bash
+open index.html
+# or
+python3 -m http.server 8000
+# then http://localhost:8000
+```
+
+## Source
+
+`info/transcription.md` (field steps) + NYSC notice via SmartJamb 28 Aug 2026 + `nysc.gov.ng/mobtable.html` + `portal.nysc.org.ng` + NERD lookup `esmat.ned.gov.ng/ai/lookup_nerd_digital_service_centre_eco.php`. Unofficial, for clarity. Always reconfirm on `portal.nysc.org.ng` / `nysc.gov.ng`.
+
+## Deploy
+
+Pushed to `main`. Pages source: `main` / `/ (root)`. Any push rebuilds `https://oselumeseagbonrofo.github.io/nysc-info/` in ~30s.
