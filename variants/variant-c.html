@@ -161,7 +161,7 @@ html{scroll-behavior:smooth}
       <h3 class="font-display text-2xl">NERD — the full page</h3>
       <div class="mt-4 grid sm:grid-cols-3 gap-3 text-sm">
         <div class="bg-white border border-rule rounded-xl p-3"><div class="font-mono text-xs font-bold">COST</div><div class="font-bold text-lg">₦12k–₦15k</div><div class="text-xs text-zinc-600">Negotiable. Go before 10am, get receipt.</div></div>
-        <div class="bg-white border border-rule rounded-xl p-3"><div class="font-mono text-xs font-bold">NEED</div><div class="font-bold">Signed project + cert/statement</div><div class="text-xs text-zinc-600">You + supervisor + HOD signatures</div></div>
+        <div class="bg-white border border-rule rounded-xl p-3"><div class="font-mono text-xs font-bold">NEED</div><div class="font-bold">Signed project only</div><div class="text-xs text-zinc-600">You + supervisor + HOD signatures. No cert/statement needed.</div></div>
         <div class="bg-clay text-white rounded-xl p-3"><div class="font-mono text-xs font-bold">GET</div><div class="font-bold">NERD code / letter</div><div class="text-xs opacity-80">Paste into NYSC portal Sept 7–13</div></div>
       </div>
       <ol class="mt-5 list-decimal list-inside text-sm leading-7 marker:font-bold">
@@ -171,17 +171,13 @@ html{scroll-behavior:smooth}
         <li>Save code — you cannot register without it.</li>
       </ol>
       <div class="mt-4 p-3 bg-[#fff1dc] border border-[#e8c9a0] rounded-xl text-sm"><b>Exempt?</b> Only if you were backlogged and already on a prior Senate list before Jan 2026. Batch C 2026 is not exempt.</div>
-      <div class="mt-4">
-        <h4 class="font-bold text-sm">No certificate yet? Use Statement of Result</h4>
-        <pre id="tpl2" class="mt-2 text-xs font-mono bg-white border border-rule rounded-xl p-3 whitespace-pre-wrap">Subject: Request for Statement of Result for NYSC Mobilization (Batch C 2026)
-
-Dear Registry / Student Affairs,
-
-I am [FULL NAME], Matric No. [XXXX], Department of [XXX], graduated [MONTH YEAR]. I need my Statement of Result for NERD clearance before 7 Sept. Copied: Mr. Sylvester Efomah.
-
-Thank you,
-[FULL NAME] | [PHONE] | [MATRIC]</pre>
-        <button onclick="copy2()" class="mt-2 bg-ink text-kraft px-4 py-2 rounded-full text-xs font-bold">Copy template</button> <span id="ok2" class="hidden text-xs font-bold text-olive ml-2">Copied ✓</span>
+      <div class="mt-4 p-3 bg-white border border-rule rounded-xl">
+        <div class="flex gap-2">
+          <span class="w-6 h-6 rounded-full bg-olive text-white grid place-items-center text-xs font-bold shrink-0">✓</span>
+          <div class="text-sm leading-relaxed">
+            <b>No certificate or statement of result needed for NERD.</b> Accredited centres should hold an <b>authorization letter from NERD</b> to carry out the upload with your signed project alone. If a centre insists on a certificate/statement, ask to see the authorization letter or try another accredited centre.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -240,16 +236,16 @@ Thank you,
 const items=[
  "Name on Senate List — checked online",
  "Signed project (me + supervisor + HOD)",
- "NERD centre found, price confirmed",
+ "NERD centre found — confirmed they hold NERD authorization letter (no cert/statement needed)",
+ "Price confirmed (₦12k–₦15k)",
  "NERD code / letter collected",
- "Certificate or statement of result ready",
  "Photos, NIN, valid ID, personal email/phone",
  "Portal registration 7–13 Sept done",
  "Green Card printed (colour), slip saved",
  "Call-up number & letter printed (colour ×3)",
  "Camp bag packed: medical cert, whites, copies, power bank",
 ];
-const KEY='nysc-pocket-checks';
+const KEY='nysc-pocket-checks-v2';
 let checks=JSON.parse(localStorage.getItem(KEY)||'null');
 if(!checks||checks.length!==items.length) checks=Array(items.length).fill(false);
 const list=document.getElementById('list'),pct=document.getElementById('pct'),bar=document.getElementById('bar');
@@ -279,7 +275,7 @@ const faq=[
  ["Can I do NERD online myself?","No — accredited centre only. That is the only record NYSC accepts."],
  ["How long does NERD take?","Same-day if your signed copy is ready. Go 7 days before 7 Sept to avoid queues."],
  ["What if Senate list is not up yet?","You cannot register until it is. Keep checking the portal; follow your school's schedule."],
- ["Statement vs certificate?","Either works for NERD and NYSC. Statement is faster to get."],
+ ["Do I need certificate or statement of result for NERD?","No. Your signed project is enough. Accredited centres should have an authorization letter from NERD to process it without either document. If asked for it, request to see the letter or try another centre."],
  ["What if I miss 7–13 Sept?","You roll to Stream 2 (~Nov). No late window."],
 ];
 const fq=document.getElementById('panel-faq');
